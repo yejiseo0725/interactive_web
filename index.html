@@ -7,124 +7,58 @@
     <title>Getting Started with the Interactive Web</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* @keyframes sample-ani {
-            0% {
-                transform: translate(0, 0);
-            }
-
-            50% {
-                transform: translate(200px, 0);
-                background-color: #EE6B6E;
-            }
-
-            100% {
-                transform: translate(400px, 300px);
-                background-color: greenyellow;
-            }
-        }
-
-        .box {
+        .container {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100px;
-            height: 100px;
-            border: 2px solid black;
-            background: #FFDB58;
-            animation: sample-ani 2s ease-in-out infinite al;
-        }
-
-        .box:hover {
-            animation-play-state: paused;
-        } */
-
-        /* body {
-            background-color: #222;
-            color: #FFF;
-        }
-
-        @keyframes spaceship-ani {
-            from {}
-
-            to {
-                background-position: -2550px 0;
-            }
-        }
-
-        .spaceship {
-            width: 150px;
-            height: 150px;
-            background: url('images/sprite_spaceship.png') no-repeat 0 0 / auto 150px;
-            animation: spaceship-ani 1s infinite reverse steps(17);
-        } */
-        .world {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 80vw;
+            /* justify-content: center; */
+            /* align-items: center; */
             height: 80vh;
             background-color: teal;
-            perspective: 500px;
         }
 
-        .card {
-            position: relative;
-            width: 100px;
-            height: 150px;
-            margin: 1em;
-            transform: rotateY(0deg);
-            transition: 0.5s;
-            transform-style: preserve-3d;
-        }
-
-        .card-side {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 0.5em;
-            font-size: 1.5rem;
-            -webkit-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            -o-backface-visibility: hidden;
-            backface-visibility: hidden;
-        }
-
-        /* 항상 벤더 접두어들이 붙은 속성(테스트용) 을 위에 쓰고, 마지막에 표준 스타일 적용하기 */
-
-        .card-side-front {
-            z-index: 1;
+        .item {
+            flex: 1;
+            /* flex-grow: 1; */
+            /* flex-basis: 0; */
+            border: 3px solid black;
             background-color: #FFF;
+            font-size: 1.7rem;
+            padding: 1em;
         }
 
-        .card-side-back {
-            background-color: tomato;
-            transform: rotateY(180deg);
+        /* 
+        .item:nth-child(1) {
+            flex-grow: 1;
         }
 
-        .world:hover .card {
-            transform: rotateY(180deg);
+        .item:nth-child(2) {
+            flex-grow: 5;
         }
+
+        .item:nth-child(3) {
+            flex-grow: 2;
+        }
+
+        .item:nth-child(4) {
+            flex-grow: 3;
+        }
+
+        .item:nth-child(5) {
+            flex-grow: 1;
+        } */
     </style>
 </head>
 
 <body>
 
-    <h1>CSS 3D</h1>
+    <h1>CSS Flex</h1>
 
-    <div class="world">
-        <div class="card">
-            <div class="card-side card-side-front">F</div>
-            <div class="card-side card-side-back">B</div>
-        </div>
+    <div class="container">
+        <div class="item">AAA</div>
+        <div class="item">B</div>
+        <div class="item">CCCCCC</div>
+        <div class="item">DDD</div>
+        <div class="item">E</div>
     </div>
-
-    <!-- <div class="spaceship"></div> -->
-    <!-- <div class="box">BOX</div> -->
 
 </body>
 
