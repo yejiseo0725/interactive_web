@@ -88,8 +88,13 @@
             height: 100%;
             border-radius: 0.5em;
             font-size: 1.5rem;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -o-backface-visibility: hidden;
             backface-visibility: hidden;
         }
+
+        /* 항상 벤더 접두어들이 붙은 속성(테스트용) 을 위에 쓰고, 마지막에 표준 스타일 적용하기 */
 
         .card-side-front {
             z-index: 1;
