@@ -38,7 +38,7 @@
             animation-play-state: paused;
         } */
 
-        body {
+        /* body {
             background-color: #222;
             color: #FFF;
         }
@@ -56,15 +56,43 @@
             height: 150px;
             background: url('images/sprite_spaceship.png') no-repeat 0 0 / auto 150px;
             animation: spaceship-ani 1s infinite reverse steps(17);
+        } */
+        .world {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80vw;
+            height: 80vh;
+            background-color: teal;
+            /* perspective: 500px; */
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 150px;
+            background-color: tomato;
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            margin: 1em;
+            transform: perspective(500px) rotateY(45deg);
         }
     </style>
 </head>
 
 <body>
 
-    <h1>CSS Animation</h1>
+    <h1>CSS 3D</h1>
 
-    <div class="spaceship"></div>
+    <div class="world">
+        <div class="card">CARD</div>
+        <div class="card">CARD</div>
+        <div class="card">CARD</div>
+    </div>
+
+    <!-- <div class="spaceship"></div> -->
     <!-- <div class="box">BOX</div> -->
 
 </body>
