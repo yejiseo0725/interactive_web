@@ -5,60 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Getting Started with the Interactive Web</title>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .container {
+        .characters {
             display: flex;
-            /* justify-content: center; */
-            /* align-items: center; */
-            height: 80vh;
-            background-color: teal;
+            width: auto;
+            height: 140px;
+            background-color: #FFDB58;
+            box-sizing: border-box;
         }
 
-        .item {
-            flex: 1;
-            /* flex-grow: 1; */
-            /* flex-basis: 0; */
-            border: 3px solid black;
-            background-color: #FFF;
-            font-size: 1.7rem;
-            padding: 1em;
+        .characters img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
-
-        /* 
-        .item:nth-child(1) {
-            flex-grow: 1;
-        }
-
-        .item:nth-child(2) {
-            flex-grow: 5;
-        }
-
-        .item:nth-child(3) {
-            flex-grow: 2;
-        }
-
-        .item:nth-child(4) {
-            flex-grow: 3;
-        }
-
-        .item:nth-child(5) {
-            flex-grow: 1;
-        } */
     </style>
 </head>
 
 <body>
 
-    <h1>CSS Flex</h1>
+    <h1>DOM Script (Document Object Model)</h1>
 
-    <div class="container">
-        <div class="item">AAA</div>
-        <div class="item">B</div>
-        <div class="item">CCCCCC</div>
-        <div class="item">DDD</div>
-        <div class="item">E</div>
+    <div class="characters">
+        <div class="ilbuni a">
+            <img src="images/ilbuni_0.png" alt="">
+        </div>
+        <div class="ilbuni b">
+            <img src="images/ilbuni_1.png" alt="">
+        </div>
+        <div class="ilbuni c">
+            <img src="images/ilbuni_2.png" alt="">
+        </div>
     </div>
+    <div class="ilbuni d">
+        <img src="images/ilbuni_3.png" alt="">
+    </div>
+
+    <script>
+        const char = document.querySelector('.characters');
+        char.setAttribute('data-id', 123);
+        console.log(char.dataset);
+
+        char.dataset.id = 777;
+        char.dataset.title = 'hello!';
+
+        console.log(char.dataset.title);
+    </script>
 
 </body>
 
