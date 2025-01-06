@@ -8,18 +8,25 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .characters {
-            display: flex;
-            width: auto;
-            height: 140px;
-            background-color: #FFDB58;
-            box-sizing: border-box;
+        img {
+            width: 100%;
+            height: auto;
         }
 
-        .characters img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+        .characters {
+            background-color: #FFDB58;
+        }
+
+        .ilbuni {
+            width: 100px;
+        }
+
+        .characters .ilbuni {
+            display: inline-block;
+        }
+
+        .special {
+            border: 10px dashed red;
         }
     </style>
 </head>
@@ -44,16 +51,16 @@
     </div>
 
     <script>
-        const char = document.querySelector('.characters');
-        char.setAttribute('data-id', 123);
-        console.log(char.dataset);
+        // const pElem = document.createElement('p');
+        // pElem.innerHTML = '<a href="#">안녕하세요</a>???'
+        // const charactersElem = document.querySelector('.characters');
+        // charactersElem.appendChild(pElem);
+        // charactersElem.removeChild(document.querySelector('.b'));
 
-        char.dataset.id = 777;
-        char.dataset.title = 'hello!';
-
-        console.log(char.dataset.title);
+        const ilbuni = document.querySelector('.ilbuni');
+        ilbuni.classList.remove('ilbuni');
+        ilbuni.classList.toggle('special');
     </script>
-
 </body>
 
 </html>
