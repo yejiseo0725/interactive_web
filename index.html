@@ -29,6 +29,10 @@
             border: 10px dashed red;
         }
     </style>
+    <script defer>
+        // window.addEventListener('DOMcontentloaded', function() {})
+    </script>
+    <!-- <script async src="ex.js"></script> -->
 </head>
 
 <body>
@@ -57,9 +61,22 @@
         // charactersElem.appendChild(pElem);
         // charactersElem.removeChild(document.querySelector('.b'));
 
-        const ilbuni = document.querySelector('.ilbuni');
-        ilbuni.classList.remove('ilbuni');
-        ilbuni.classList.toggle('special');
+        (function () {
+            const ilbuni = document.querySelector('.ilbuni:nth-child(3)');
+
+            const clickIlbuniHandler = () => {
+                ilbuni.classList.toggle('special');
+            }
+
+            // function clickIlbuniHandler() {
+            //     ilbuni.classList.toggle('special');
+            // }
+
+            ilbuni.addEventListener('click', clickIlbuniHandler);
+        })();
+
+        document.querySelector('.characters').innerTEXT = 'HELLO!';
+
     </script>
 </body>
 
