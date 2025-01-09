@@ -8,70 +8,35 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        img {
-            width: 100%;
-            height: auto;
-        }
 
-        .characters {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            background-color: #FFDB58;
-        }
-
-        .ilbuni {
-            width: 100px;
-            cursor: pointer;
-        }
-
-        .characters .ilbuni {
-            display: inline-block;
-        }
-
-        .special {
-            border: 10px dashed red;
-        }
     </style>
-    <script defer>
-        // window.addEventListener('DOMcontentloaded', function() {})
-    </script>
-    <!-- <script async src="ex.js"></script> -->
+
 </head>
 
 <body>
 
-    <h1>DOM Script (Document Object Model)</h1>
-
-    <div class="characters">
-        <div class="ilbuni a">
-            <img src="images/ilbuni_0.png" alt="">
-        </div>
-        <div class="ilbuni b">
-            <img src="images/ilbuni_1.png" alt="">
-        </div>
-        <div class="ilbuni c">
-            <img src="images/ilbuni_2.png" alt="">
-        </div>
-        <div class="ilbuni d">
-            <img src="images/ilbuni_3.png" alt="">
-        </div>
+    <div class="stage">
+        <div class="ilbuni a"></div>
+        <div class="ilbuni b"></div>
+        <div class="ilbuni c"></div>
     </div>
 
     <script>
         (function () {
-            const characters = document.querySelector('.characters');
+            const ilbuniGroup = document.querySelectorAll('.ilbuni');
+            const stage = document.querySelector('.stage');
 
             function clickHandler(e) {
-                // console.log(e.currentTarget);
-                console.log(e.target);
+                // stage.removeChild(this);
+                console.log(this.parentNode);
             }
 
-            characters.addEventListener('click', clickHandler);
+            for (let i = 0; i < ilbuniGroup.length; i++) {
+                ilbuniGroup[i].addEventListener('click', clickHandler);
+            }
         })();
-
-        document.querySelector('.characters').innerTEXT = 'HELLO!';
     </script>
+
 </body>
 
 </html>
