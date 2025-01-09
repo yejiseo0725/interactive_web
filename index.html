@@ -14,11 +14,15 @@
         }
 
         .characters {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
             background-color: #FFDB58;
         }
 
         .ilbuni {
             width: 100px;
+            cursor: pointer;
         }
 
         .characters .ilbuni {
@@ -49,34 +53,24 @@
         <div class="ilbuni c">
             <img src="images/ilbuni_2.png" alt="">
         </div>
-    </div>
-    <div class="ilbuni d">
-        <img src="images/ilbuni_3.png" alt="">
+        <div class="ilbuni d">
+            <img src="images/ilbuni_3.png" alt="">
+        </div>
     </div>
 
     <script>
-        // const pElem = document.createElement('p');
-        // pElem.innerHTML = '<a href="#">안녕하세요</a>???'
-        // const charactersElem = document.querySelector('.characters');
-        // charactersElem.appendChild(pElem);
-        // charactersElem.removeChild(document.querySelector('.b'));
-
         (function () {
-            const ilbuni = document.querySelector('.ilbuni:nth-child(3)');
+            const characters = document.querySelector('.characters');
 
-            const clickIlbuniHandler = () => {
-                ilbuni.classList.toggle('special');
+            function clickHandler(e) {
+                // console.log(e.currentTarget);
+                console.log(e.target);
             }
 
-            // function clickIlbuniHandler() {
-            //     ilbuni.classList.toggle('special');
-            // }
-
-            ilbuni.addEventListener('click', clickIlbuniHandler);
+            characters.addEventListener('click', clickHandler);
         })();
 
         document.querySelector('.characters').innerTEXT = 'HELLO!';
-
     </script>
 </body>
 
