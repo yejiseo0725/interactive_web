@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-
+        /* 이벤트를 받게 하고 싶지 않은 element에는 */
+        /* pointer-events: none; */
     </style>
 
 </head>
@@ -24,6 +25,7 @@
     <script>
         (function () {
             // 이벤트 위임
+            // : 부모 element에 이벤트를 위임시키는 것
             const stage = document.querySelector('.stage');
 
             function clickHandler(e) {
