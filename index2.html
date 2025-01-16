@@ -4,34 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>3개의 문</title>
+    <link rel="stylesheet" href="css/reset.css">
     <style>
-        div {
-            padding: 20px;
-            border: 5px solid black;
+        .stage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            background: #333;
         }
 
-        .elem2 {
-            /* pointer-events: none; */
+        .door {
+            position: relative;
+            width: 100px;
+            height: 150px;
+        }
+
+        .door-back {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+        }
+
+        .ilbuni {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100px;
+            height: 100px;
+            background-repeat: no-repeat;
+            background-position: 50% 100%;
+            background-size: contain;
+        }
+
+        .door:nth-child(1) .ilbuni {
+            background-image: url(images/ilbuni_0.png);
+        }
+
+        .door:nth-child(2) .ilbuni {
+            background-image: url(images/ilbuni_1.png);
+        }
+
+        .door:nth-child(3) .ilbuni {
+            background-image: url(images/ilbuni_2.png);
+        }
+
+        .door-body {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .door:nth-child(1) .door-body {
+            background: rgba(255, 0, 0, 0.7);
+        }
+
+        .door:nth-child(2) .door-body {
+            background: rgba(0, 255, 0, 0.7);
+        }
+
+        .door:nth-child(3) .door-body {
+            background: rgba(0, 0, 255, 0.7);
         }
     </style>
 </head>
 
 <body>
-
-    <div class="elem1" data-id="about">
-        <div class="elem2">
-            <div class="elem3">elem3</div>
+    <div class="stage">
+        <div class="door">
+            <div class="door-back"></div>
+            <div class="ilbuni"></div>
+            <div class="door-body"></div>
+        </div>
+        <div class="door">
+            <div class="door-back"></div>
+            <div class="ilbuni"></div>
+            <div class="door-body"></div>
+        </div>
+        <div class="door">
+            <div class="door-back"></div>
+            <div class="ilbuni"></div>
+            <div class="door-body"></div>
         </div>
     </div>
 
+
     <script>
-        const elem1 = document.querySelector('.elem1');
-        elem1.addEventListener('click', e => {
-            // console.log(e.target.dataset.id);
-            console.log(e.target.closest('.elem1'));
-            // 여기에 해당하는 가장 가까운 target 찾아냄
-        });
+
     </script>
 
 </body>
