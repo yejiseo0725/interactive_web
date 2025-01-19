@@ -114,16 +114,25 @@
 
 
     <script>
+        // UI 주요 기능: 여러개 중에 하나만 활성화되는 패턴 
         (function () {
             const stageElem = document.querySelector('.stage');
+            // 현재 활성화된 아이템을 저장
+            let currentItem;
 
             function doorHandler(e) {
                 const targetElem = e.target;
 
+                if (currentItem) {
+                    currentItem.classList.remove('door-opened');
+                }
+
                 // contains method 
                 if (targetElem.classList.contains('door-body')) {
                     targetElem.parentNode.classList.add('door-opened');
+                    currentItem = targetElem.parentNode;
                 }
+
             }
 
             stageElem.addEventListener('click', doorHandler);
