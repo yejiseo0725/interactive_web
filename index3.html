@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/reset.css">
     <title>객체: Object</title>
+    <style>
+        .card {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 150px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-size: 3rem;
+            font-weight: 900;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,20 +29,42 @@
 
         // 생성자 (constructor)
         // 생성자 함수 맨 앞글자는 '대문자'
-        function Person(nickname, age) {
-            this.nickname = nickname;
-            this.age = age;
-            this.intro = function () {
-                console.log(`안녕???? 저는 ${this.nickname}이고, 나이는 ${this.age}살이에요.`);
+        // function Person(nickname, age) {
+        //     this.nickname = nickname;
+        //     this.age = age;
+        // }
+
+        // Person.prototype.intro = function () {
+        //     console.log(`안녕???? 저는 ${this.nickname}이고, 나이는 ${this.age}살이에요.`);
+        // };
+
+        // // 인스턴스 (instance)
+        // const person1 = new Person('일분이', 10);
+        // const person2 = new Person('이분이', 8);
+
+        // person1.intro();
+        // person2.intro();
+
+        // 카드
+        function Card(num, color) {
+            this.num = num;
+            this.color = color;
+            this.init();
+        }
+
+        Card.prototype = {
+            constructor: Card,
+            init: function () {
+                const mainElem = document.createElement('div');
+                mainElem.style.color = this.color;
+                mainElem.innerHTML = this.num;
+                mainElem.classList.add('card');
+                document.body.appendChild(mainElem);
             }
         }
 
-        // 인스턴스 (instance)
-        const person1 = new Person('일분이', 10);
-        const person2 = new Person('이분이', 8);
-
-        person1.intro();
-        person2.intro();
+        const card1 = new Card(100, 'orangered');
+        const card2 = new Card(75, 'blue');
 
     </script>
 
