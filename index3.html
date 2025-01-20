@@ -26,35 +26,14 @@
     <h1>Object</h1>
 
     <script>
+        class Card {
+            constructor(num, color) {
+                this.num = num;
+                this.color = color;
+                this.init();
+            }
 
-        // 생성자 (constructor)
-        // 생성자 함수 맨 앞글자는 '대문자'
-        // function Person(nickname, age) {
-        //     this.nickname = nickname;
-        //     this.age = age;
-        // }
-
-        // Person.prototype.intro = function () {
-        //     console.log(`안녕???? 저는 ${this.nickname}이고, 나이는 ${this.age}살이에요.`);
-        // };
-
-        // // 인스턴스 (instance)
-        // const person1 = new Person('일분이', 10);
-        // const person2 = new Person('이분이', 8);
-
-        // person1.intro();
-        // person2.intro();
-
-        // 카드
-        function Card(num, color) {
-            this.num = num;
-            this.color = color;
-            this.init();
-        }
-
-        Card.prototype = {
-            constructor: Card,
-            init: function () {
+            init() {
                 const mainElem = document.createElement('div');
                 mainElem.style.color = this.color;
                 mainElem.innerHTML = this.num;
@@ -63,8 +42,26 @@
             }
         }
 
+        // 카드
+        // function Card(num, color) {
+        //     this.num = num;
+        //     this.color = color;
+        //     this.init();
+        // }
+
+        // Card.prototype = {
+        //     constructor: Card,
+        //     init: function () {
+        //         const mainElem = document.createElement('div');
+        //         mainElem.style.color = this.color;
+        //         mainElem.innerHTML = this.num;
+        //         mainElem.classList.add('card');
+        //         document.body.appendChild(mainElem);
+        //     }
+        // }
+
         const card1 = new Card(100, 'orangered');
-        const card2 = new Card(75, 'blue');
+        const card2 = new Card(7, 'blue');
 
     </script>
 
