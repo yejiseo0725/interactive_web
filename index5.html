@@ -17,16 +17,23 @@
 
     <script>
         let timeId;
+        let n = 0;
         const btn = document.querySelector('.btn');
 
         function sample() {
-            console.log('sample!!!');
+            n++;
+            console.log(n);
+            if (n > 200) {
+                return;
+            }
+            timeId = requestAnimationFrame(sample);
         }
 
-        timeId = setInterval(sample, 100);
+        // requestAnimationFrame(sample);
+        sample();
 
         btn.addEventListener('click', function () {
-            clearInterval(timeId);
+            cancelAnimationFrame(timeId);
         });
 
         // btn.addEventListener('click', function () {
