@@ -1,0 +1,27 @@
+/* reset */
+body {
+  font-family: "Apple SD Gothic Neo", "Roboto", "Noto Sans KR", NanumGothic,
+    "Malgun Gothic", sans-serif;
+  color: #333;
+  background-color: #fff000;
+}
+
+.world {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  /* 3D 공간 생성 */
+  perspective: 1000px;
+}
+
+.stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  /* 가장 안쪽 element 까지 3D 효과 적용시키기 위한 css 요소 */
+  transform-style: preserve-3d;
+}
