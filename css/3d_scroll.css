@@ -25,3 +25,27 @@ body {
   /* 가장 안쪽 element 까지 3D 효과 적용시키기 위한 css 요소 */
   transform-style: preserve-3d;
 }
+
+.house {
+  width: 100vw;
+  height: 100vh;
+  transform-style: preserve-3d;
+}
+
+.wall {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.8);
+}
+.wall-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+h2.wall-title {
+  font-size: 5rem;
+}
