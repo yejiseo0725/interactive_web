@@ -7,6 +7,22 @@ body {
   background-color: #fff000;
 }
 
+/* progress bar */
+.progress-bar-con {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 5px;
+  z-index: 100;
+  background-color: #555;
+}
+.progress-bar {
+  width: 0;
+  height: 5px;
+  background-color: #00a8ff;
+}
+
 .world {
   position: fixed;
   left: 0;

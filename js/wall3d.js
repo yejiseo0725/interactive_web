@@ -1,5 +1,6 @@
 (function () {
   const houseElem = document.querySelector(".house");
+  const barElem = document.querySelector(".progress-bar");
 
   // 전체 문서 높이; 스크롤바 트랙의 높이; body의 높이
   // 현재 문서 높이 - 윈도우 높이 = 스크롤 가능 범위
@@ -10,10 +11,14 @@
   }
 
   window.addEventListener("scroll", function () {
+    const scrollPer = scrollY / maxScrollValue;
     // 비율: 0~1
     // 490 은 css transfrom 의 default 값을 빼준 것
     const zMove = (scrollY / maxScrollValue) * 970 - 490;
     houseElem.style.transform = "translateZ(" + zMove + "vw)";
+
+    // progress bar
+    barElem.style.width = scrollPer * 100 + "%";
   });
 
   window.addEventListener("resize", resizeHandler);
