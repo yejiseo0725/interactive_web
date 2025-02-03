@@ -41,4 +41,6 @@
   window.addEventListener("resize", resizeHandler);
   // 초기화를 위해 일부러 실행
   resizeHandler();
+
+  new Character();
 })();
