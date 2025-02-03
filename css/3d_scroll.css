@@ -1,3 +1,9 @@
+@keyframes ani-head {
+  to {
+    transform: rotateX(-10deg);
+  }
+}
+
 /* reset */
 body {
   height: 500vw;
@@ -147,6 +153,7 @@ h2.wall-title {
   transform-origin: center bottom;
   animation: ani-head 0.6s infinite alternate
     cubic-bezier(0.46, 0.18, 0.66, 0.93);
+  /* cubic-bezier: 가속도가 되는 느낌 설정 */
 }
 .character-head-face.face-front {
   background-image: url("../images/ilbuni_head_front.png");
