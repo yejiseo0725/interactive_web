@@ -36,10 +36,19 @@ function Character(info) {
   document.querySelector(".stage").appendChild(this.mainElem);
 
   this.mainElem.style.left = info.xPos + "%";
+  this.init();
 }
 
 // prototype 객체의 재설정 (기존것을 변화시키기 위함)
 Character.prototype = {
   // constructor 속성이 가리키는 것: 생성자 (기존것을 일단 보존하기 위해 따로 지정해 줌)
   constructor: Character,
+  init: function () {
+    const self = this;
+    // this 를 window.addEventListener 안에서 사용하기 위해 변수에 넣어줌
+
+    window.addEventListener("scroll", function () {
+      self.mainElem.classList.add("running");
+    });
+  },
 };
