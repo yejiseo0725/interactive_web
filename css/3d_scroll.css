@@ -138,6 +138,7 @@ h2.wall-title {
   transform: rotateY(180deg);
 }
 .character-head {
+  /* calc 함수를 쓰면 무엇을 근거로 값이 나왔는지 알 수 있음 */
   left: calc(42 / 856 * 100%);
   top: 0;
   z-index: 60;
