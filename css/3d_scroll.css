@@ -4,6 +4,24 @@
   }
 }
 
+@keyframes ani-running-leg {
+  from {
+    transform: rotateX(-30deg);
+  }
+  to {
+    transform: rotateX(30deg);
+  }
+}
+
+@keyframes ani-running-arm {
+  from {
+    transform: rotateY(-30deg);
+  }
+  to {
+    transform: rotateY(30deg);
+  }
+}
+
 /* reset */
 body {
   height: 500vw;
@@ -230,6 +248,7 @@ h2.wall-title {
 .character.running .character-leg-right {
   animation: ani-running-leg 0.2s alternate infinite linear;
 }
+/* -reverse 를 이용해 다리를 서로 반대로 움직이게 */
 .character.running .character-leg-left {
   animation: ani-running-leg 0.2s alternate-reverse infinite linear;
 }
