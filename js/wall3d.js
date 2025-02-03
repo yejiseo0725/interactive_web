@@ -39,8 +39,13 @@
 
   // resize 될 때 마다 event 실행
   window.addEventListener("resize", resizeHandler);
+
+  stageElem.addEventListener("click", function (e) {
+    new Character({
+      xPos: (e.clientX / window.innerWidth) * 100,
+    });
+  });
+
   // 초기화를 위해 일부러 실행
   resizeHandler();
-
-  new Character();
 })();
