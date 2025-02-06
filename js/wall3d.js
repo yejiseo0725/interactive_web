@@ -2,6 +2,7 @@
   const stageElem = document.querySelector(".stage");
   const houseElem = document.querySelector(".house");
   const barElem = document.querySelector(".progress-bar");
+  const selectCharacterElem = document.querySelector(".select-character");
   const mousePos = { x: 0, y: 0 };
 
   // 전체 문서 높이; 스크롤바 트랙의 높이; body의 높이
@@ -46,6 +47,11 @@
       xPos: (e.clientX / window.innerWidth) * 100,
       speed: Math.random() + 0.15,
     });
+  });
+
+  selectCharacterElem.addEventListener("click", function (e) {
+    const value = e.target.getAttribute("data-char");
+    document.body.setAttribute("data-char", value);
   });
 
   // 초기화를 위해 일부러 실행

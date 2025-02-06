@@ -29,6 +29,10 @@ body {
     "Malgun Gothic", sans-serif;
   color: #333;
   background-color: #fff000;
+  transition: 0.5s;
+}
+body[data-char="ragirl"] {
+  background: #ff7200;
 }
 
 /* progress bar */
