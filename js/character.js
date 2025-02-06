@@ -43,7 +43,7 @@ function Character(info) {
   this.lastScrollTop = 0;
   this.xPos = info.xPos;
   // 방향키를 누르면 이 speed 값 만큼 이동시키려고 만든 변수
-  this.speed = 0.3;
+  this.speed = info.speed;
   this.direction;
   // 좌우 이동 중인지 아닌지 판별
   this.runningState = false;
@@ -113,6 +113,8 @@ Character.prototype = {
     window.addEventListener("keyup", function (e) {
       self.mainElem.classList.remove("running");
       this.cancelAnimationFrame(self.radId);
+      // 키다운을 위해 초기화 시켜주기
+      self.runningState = false;
     });
   },
 
@@ -123,10 +125,10 @@ Character.prototype = {
       self.xPos += self.speed;
     }
 
+    // console.log(self.xPos);
     if (self.xPos < 2) {
       self.xPos = 2;
     }
-
     if (self.xPos > 88) {
       self.xPos = 88;
     }

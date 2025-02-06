@@ -40,9 +40,11 @@
   // resize 될 때 마다 event 실행
   window.addEventListener("resize", resizeHandler);
 
+  // 새 캐릭터 생성시의 정보
   stageElem.addEventListener("click", function (e) {
     new Character({
       xPos: (e.clientX / window.innerWidth) * 100,
+      speed: Math.random() + 0.15,
     });
   });
 
