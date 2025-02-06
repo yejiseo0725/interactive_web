@@ -36,6 +36,9 @@ function Character(info) {
   document.querySelector(".stage").appendChild(this.mainElem);
 
   this.mainElem.style.left = info.xPos + "%";
+
+  // 현재 스크롤 중인지 아닌지 체크
+  this.scrollState = false;
   this.init();
 }
 
@@ -48,7 +51,20 @@ Character.prototype = {
     // this 를 window.addEventListener 안에서 사용하기 위해 변수에 넣어줌
 
     window.addEventListener("scroll", function () {
-      self.mainElem.classList.add("running");
+      // setTimeout 함수를 취소하는 역할
+      clearTimeout(self.scrollState);
+
+      // 스크롤이 발생할 때마다 실행 됨 ---> 너무 많은 실행(비효율적)
+      if (!self.scrollState) {
+        self.mainElem.classList.add("running");
+      }
+
+      // setTimeout,500 ---> 0.5초 후에 1번 실행 & 항상 숫자 리턴
+      // clear가 되지 못한 마지막 1번만 실행 (효율적)
+      self.scrollState = setTimeout(function () {
+        self.scrollState = false;
+        self.mainElem.classList.remove("running");
+      }, 500);
     });
   },
 };
