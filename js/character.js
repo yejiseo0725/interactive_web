@@ -35,12 +35,15 @@ function Character(info) {
 
   document.querySelector(".stage").appendChild(this.mainElem);
 
+  // 캐릭터 생성 위치 잡기
   this.mainElem.style.left = info.xPos + "%";
-
   // 현재 스크롤 중인지 아닌지 체크
   this.scrollState = false;
   // 바로 이전(마지막) 스크롤 위치 (현재 스크롤 위치와 비교 위함)
   this.lastScrollTop = 0;
+  this.xPos = info.xPos;
+  // 방향키를 누르면 이 speed 값 만큼 이동시키려고 만든 변수
+  this.speed = 5;
   this.init();
 }
 
@@ -78,6 +81,25 @@ Character.prototype = {
       }
 
       self.lastScrollTop = scrollY;
+    });
+
+    // 키보드 키를 눌렀을 때 발생하는 이벤트
+    // 현재의 e.key 속성은 따로 방향 설정 안 해줘도 동작함!
+    window.addEventListener("keydown", function (e) {
+      if (e.key == "ArrowLeft") {
+        self.mainElem.setAttribute("data-direction", "left");
+        self.mainElem.classList.add("running");
+        self.xPos = self.xPos - self.speed;
+        self.mainElem.style.left = self.xPos + "%";
+      } else if (e.key == "ArrowRight") {
+        self.mainElem.setAttribute("data-direction", "right");
+        self.mainElem.classList.add("running");
+      }
+    });
+
+    // 키보드 키를 뗐을 때 발생하는 이벤트
+    window.addEventListener("keyup", function (e) {
+      self.mainElem.classList.remove("running");
     });
   },
 };
