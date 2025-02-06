@@ -43,7 +43,11 @@ function Character(info) {
   this.lastScrollTop = 0;
   this.xPos = info.xPos;
   // 방향키를 누르면 이 speed 값 만큼 이동시키려고 만든 변수
-  this.speed = 5;
+  this.speed = 0.3;
+  this.direction;
+  // 좌우 이동 중인지 아닌지 판별
+  this.runningState = false;
+  this.rafId;
   this.init();
 }
 
@@ -86,20 +90,78 @@ Character.prototype = {
     // 키보드 키를 눌렀을 때 발생하는 이벤트
     // 현재의 e.key 속성은 따로 방향 설정 안 해줘도 동작함!
     window.addEventListener("keydown", function (e) {
+      if (self.runningState) return;
+
+      console.log("키다운!!!");
+
       if (e.key == "ArrowLeft") {
+        self.direction = "left";
         self.mainElem.setAttribute("data-direction", "left");
         self.mainElem.classList.add("running");
-        self.xPos = self.xPos - self.speed;
-        self.mainElem.style.left = self.xPos + "%";
+        self.run(self);
+        self.runningState = true;
       } else if (e.key == "ArrowRight") {
+        self.direction = "right";
         self.mainElem.setAttribute("data-direction", "right");
         self.mainElem.classList.add("running");
+        self.run(self);
+        self.runningState = true;
       }
     });
 
     // 키보드 키를 뗐을 때 발생하는 이벤트
     window.addEventListener("keyup", function (e) {
       self.mainElem.classList.remove("running");
+      this.cancelAnimationFrame(self.radId);
     });
   },
+
+  run: function (self) {
+    if (self.direction == "left") {
+      self.xPos -= self.speed;
+    } else if (self.direction == "right") {
+      self.xPos += self.speed;
+    }
+
+    if (self.xPos < 2) {
+      self.xPos = 2;
+    }
+
+    if (self.xPos > 88) {
+      self.xPos = 88;
+    }
+
+    self.mainElem.style.left = self.xPos + "%";
+
+    self.radId = requestAnimationFrame(function () {
+      self.run(self);
+    });
+  },
+
+  // ES6 화살표 함수는 함수가 선언될 때의 this 컨텍스트를 유지하는 특성
+  // 즉, 함수가 호출될 때마다 this 값이 달라지지 않음!
+  // run: () => {
+  //   if (this.direction === "left") {
+  //     this.xPos += this.speed;
+  //   } else if (this.direction === "right") {
+  //     this.xPos -= this.speed;
+  //   }
+
+  //   this.mainElem.style.left = `${this.xPos}%`;
+
+  //   requestAnimationFrame(this.run);
+  // },
+
+  // bind: 호출 방법과 관계없이 특정 this 값으로 호출되는 함수 만들기
+  // run() {
+  //   if (this.direction == "left") {
+  //     this.xPos -= this.speed;
+  //   } else if (this.direction == "right") {
+  //     this.xPos += this.speed;
+  //   }
+
+  //   this.mainElem.style.left = `${this.xPos}%`;
+
+  //   requestAnimationFrame(this.run.bind(this));
+  // },
 };
