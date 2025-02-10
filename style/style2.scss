@@ -1,23 +1,59 @@
-$bgColor: tomato;
-$font-h1: 28px;
-$valid-sides: left, center, right;
-$font-sizes: (
-  "myh1": 45px,
-  "myh2": 19px,
-  "myp": 16px,
-);
+// $bgColor: tomato;
+// $font-h1: 28px;
+// $valid-sides: left, center, right;
+// $font-sizes: (
+//   "myh1": 45px,
+//   "myh2": 19px,
+//   "myp": 16px,
+// );
 
-h1 {
-  $spanColor: teal; // 지역변수
-  color: $bgColor;
-  // font-size: $bgColor;
-  font-size: map-get($font-sizes, "myp") * 2;
-  span {
-    color: $spanColor;
-  }
+// h1 {
+//   $spanColor: teal; // 지역변수
+//   color: $bgColor;
+//   // font-size: $bgColor;
+//   font-size: map-get($font-sizes, "myp") * 2;
+//   span {
+//     color: $spanColor;
+//   }
+// }
+
+// p {
+//   // color: $spanColor; // 지역변수라 사용 불가
+//   text-align: nth($valid-sides, -2);
+// }
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
 }
 
-p {
-  // color: $spanColor; // 지역변수라 사용 불가
-  text-align: nth($valid-sides, -2);
+@mixin flexCenter2($size: 30px) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  li {
+    margin-right: $size;
+  }
+  @content;
+}
+
+.one {
+  @include flexCenter2(10px);
+  // 정의한 center-xy mixin을 사용하여 코드 한줄이면 끝!
+  background: aqua;
+}
+
+.two {
+  @include flexCenter2(20px);
+  background: chocolate;
+}
+
+.three {
+  @include flexCenter2 {
+    color: white;
+  }
+  background: orange;
 }
