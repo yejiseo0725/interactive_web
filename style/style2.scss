@@ -1,3 +1,59 @@
+/* 여러줄 주석이며
+이 주석은 css로 변환될 때 
+보입니다. */
+
+// ex-1
+nav {
+  background: lightskyblue;
+  padding: 10px;
+  height: 50px;
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    li {
+      color: white;
+      margin-right: 10px;
+    }
+  }
+}
+
+// ex-2
+.background-img {
+  width: 100%;
+  height: auto;
+  background: {
+    image: url("/images/ilbuni_0.png");
+    position: center center;
+    repeat: no-repeat;
+  }
+}
+
+// ex-3
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: tomato;
+  transition: all 1s;
+  &:hover {
+    background-color: teal;
+  }
+}
+
+// ex-4
+.one {
+  color: red;
+  .two {
+    color: green;
+    .three {
+      color: blue;
+      @at-root p {
+        color: lightskyblue;
+      }
+    }
+  }
+}
+
 // $bgColor: tomato;
 // $font-h1: 28px;
 // $valid-sides: left, center, right;
@@ -58,39 +114,145 @@
 //   background: orange;
 // }
 
-.profile-user {
-  background-image: url("/images/programmer.png");
-  background-size: cover;
-  background-position: 50% 50%;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+// .profile-user {
+//   background-image: url("/images/programmer.png");
+//   background-size: cover;
+//   background-position: 50% 50%;
+//   border-radius: 50%;
+//   width: 50px;
+//   height: 50px;
+// }
+
+// .comment-user {
+//   @extend .profile-user;
+//   border-width: 10px;
+// }
+
+// %base-button {
+//   width: 133px;
+//   height: 44px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-size: 14px;
+//   border-radius: 10px;
+// }
+
+// .follow-button {
+//   @extend %base-button;
+//   background-color: #ffffff;
+//   color: #ff375f;
+//   border: 3px solid #ff375f;
+// }
+
+// .message-button {
+//   @extend %base-button;
+//   background-color: #ff375f;
+//   color: white;
+// }
+
+@mixin avatar($size, $circle: false) {
+  width: $size;
+  height: $size;
+
+  @if $circle {
+    border-radius: $size / 2;
+  }
 }
 
-.comment-user {
-  @extend .profile-user;
-  border-width: 10px;
+.square-av {
+  @include avatar(100px, $circle: false);
+}
+.circle-av {
+  @include avatar(100px, $circle: true);
 }
 
-%base-button {
-  width: 133px;
-  height: 44px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  border-radius: 10px;
+$light-background: #f2ece4;
+$light-text: #036;
+$dark-background: #6b717f;
+$dark-text: #d2e1dd;
+
+@mixin theme-colors($light-theme: true) {
+  @if $light-theme {
+    background-color: $light-background;
+    color: $light-text;
+  } @else {
+    background-color: $dark-background;
+    color: $dark-text;
+  }
 }
 
-.follow-button {
-  @extend %base-button;
-  background-color: #ffffff;
-  color: #ff375f;
-  border: 3px solid #ff375f;
+.banner {
+  @include theme-colors($light-theme: true);
+  body.dark & {
+    @include theme-colors($light-theme: false);
+  }
 }
 
-.message-button {
-  @extend %base-button;
-  background-color: #ff375f;
-  color: white;
+@mixin triangle($size, $color, $direction) {
+  height: 0;
+  width: 0;
+
+  border-color: transparent;
+  border-style: solid;
+  border-width: ($size/2);
+
+  @if $direction == up {
+    border-bottom-color: $color;
+  } @else if $direction == right {
+    border-left-color: $color;
+  } @else if $direction == down {
+    border-top-color: $color;
+  } @else if $direction == left {
+    border-right-color: $color;
+  } @else {
+    @error "Unknown direction #{$direction}.";
+  }
+}
+
+.next {
+  @include triangle(5px, black, right);
+}
+
+@for $i from 1 through 5 {
+  .photo-box:nth-child(#{$i}) {
+    background-image: url("../assets/phoster#{$i}.png");
+  }
+}
+
+$color-palette: #dad5d2 #3a3532 #375945 #5b8767 #a6c198 #dbdfc8;
+
+@each $color in $color-palette {
+  $i: index($color-palette, $color); //index는 list의 내장함수
+  .color-circle:nth-child(#{$i}) {
+    background: $color;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+}
+
+@function scale-below($value, $base, $ratio: 1.618) {
+  @while $value > $base {
+    $value: ($value/$ratio);
+  }
+  @return $value;
+}
+
+$normal-font-size: 16px;
+.sup {
+  font-size: scale-below(20px, 16px);
+}
+
+@function pow($base, $exponent) {
+  $result: 1;
+  @for $_ from 1 through $exponent {
+    $result: $result * $base;
+  }
+  @return $result;
+}
+
+.sidebar {
+  float: left;
+  margin-left: pow(4, 3) * 1px;
 }

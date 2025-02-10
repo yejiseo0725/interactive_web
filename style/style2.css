@@ -1,33 +1,149 @@
-.profile-user, .comment-user {
-  background-image: url("/images/programmer.png");
-  background-size: cover;
-  background-position: 50% 50%;
-  border-radius: 50%;
-  width: 50px;
+@charset "UTF-8";
+/* 여러줄 주석이며
+이 주석은 css로 변환될 때 
+보입니다. */
+nav {
+  background: lightskyblue;
+  padding: 10px;
   height: 50px;
 }
-
-.comment-user {
-  border-width: 10px;
-}
-
-.message-button, .follow-button {
-  width: 133px;
-  height: 44px;
+nav ul {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  border-radius: 10px;
+  justify-content: flex-end;
+  list-style: none;
 }
-
-.follow-button {
-  background-color: #ffffff;
-  color: #ff375f;
-  border: 3px solid #ff375f;
-}
-
-.message-button {
-  background-color: #ff375f;
+nav ul li {
   color: white;
+  margin-right: 10px;
+}
+
+.background-img {
+  width: 100%;
+  height: auto;
+  background-image: url("/images/ilbuni_0.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: tomato;
+  transition: all 1s;
+}
+.box:hover {
+  background-color: teal;
+}
+
+.one {
+  color: red;
+}
+.one .two {
+  color: green;
+}
+.one .two .three {
+  color: blue;
+}
+p {
+  color: lightskyblue;
+}
+
+.square-av {
+  width: 100px;
+  height: 100px;
+}
+
+.circle-av {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.banner {
+  background-color: #f2ece4;
+  color: #036;
+}
+body.dark .banner {
+  background-color: #6b717f;
+  color: #d2e1dd;
+}
+
+.next {
+  height: 0;
+  width: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 2.5px;
+  border-left-color: black;
+}
+
+.photo-box:nth-child(1) {
+  background-image: url("../assets/phoster1.png");
+}
+
+.photo-box:nth-child(2) {
+  background-image: url("../assets/phoster2.png");
+}
+
+.photo-box:nth-child(3) {
+  background-image: url("../assets/phoster3.png");
+}
+
+.photo-box:nth-child(4) {
+  background-image: url("../assets/phoster4.png");
+}
+
+.photo-box:nth-child(5) {
+  background-image: url("../assets/phoster5.png");
+}
+
+.color-circle:nth-child(1) {
+  background: #dad5d2;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.color-circle:nth-child(2) {
+  background: #3a3532;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.color-circle:nth-child(3) {
+  background: #375945;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.color-circle:nth-child(4) {
+  background: #5b8767;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.color-circle:nth-child(5) {
+  background: #a6c198;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.color-circle:nth-child(6) {
+  background: #dbdfc8;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.sup {
+  font-size: 12.3609394314px;
+}
+
+.sidebar {
+  float: left;
+  margin-left: 64px;
 }/*# sourceMappingURL=style2.css.map */
