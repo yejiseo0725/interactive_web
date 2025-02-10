@@ -1,33 +1,33 @@
-.one {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  background: aqua;
-}
-.one li {
-  margin-right: 10px;
+.profile-user, .comment-user {
+  background-image: url("/images/programmer.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
 }
 
-.two {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  background: chocolate;
-}
-.two li {
-  margin-right: 20px;
+.comment-user {
+  border-width: 10px;
 }
 
-.three {
+.message-button, .follow-button {
+  width: 133px;
+  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
-  list-style: none;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.follow-button {
+  background-color: #ffffff;
+  color: #ff375f;
+  border: 3px solid #ff375f;
+}
+
+.message-button {
+  background-color: #ff375f;
   color: white;
-  background: orange;
-}
-.three li {
-  margin-right: 30px;
 }/*# sourceMappingURL=style2.css.map */

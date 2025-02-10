@@ -22,38 +22,75 @@
 //   text-align: nth($valid-sides, -2);
 // }
 
-@mixin flexCenter {
+// @mixin flexCenter {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   list-style: none;
+// }
+
+// @mixin flexCenter2($size: 30px) {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   list-style: none;
+//   li {
+//     margin-right: $size;
+//   }
+//   @content;
+// }
+
+// .one {
+//   @include flexCenter2(10px);
+//   // 정의한 center-xy mixin을 사용하여 코드 한줄이면 끝!
+//   background: aqua;
+// }
+
+// .two {
+//   @include flexCenter2(20px);
+//   background: chocolate;
+// }
+
+// .three {
+//   @include flexCenter2 {
+//     color: white;
+//   }
+//   background: orange;
+// }
+
+.profile-user {
+  background-image: url("/images/programmer.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.comment-user {
+  @extend .profile-user;
+  border-width: 10px;
+}
+
+%base-button {
+  width: 133px;
+  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
-  list-style: none;
+  font-size: 14px;
+  border-radius: 10px;
 }
 
-@mixin flexCenter2($size: 30px) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  li {
-    margin-right: $size;
-  }
-  @content;
+.follow-button {
+  @extend %base-button;
+  background-color: #ffffff;
+  color: #ff375f;
+  border: 3px solid #ff375f;
 }
 
-.one {
-  @include flexCenter2(10px);
-  // 정의한 center-xy mixin을 사용하여 코드 한줄이면 끝!
-  background: aqua;
-}
-
-.two {
-  @include flexCenter2(20px);
-  background: chocolate;
-}
-
-.three {
-  @include flexCenter2 {
-    color: white;
-  }
-  background: orange;
+.message-button {
+  @extend %base-button;
+  background-color: #ff375f;
+  color: white;
 }
