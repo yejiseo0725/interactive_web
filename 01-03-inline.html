@@ -6,6 +6,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SVG</title>
+  <!-- <style>
+    .face {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 200px;
+      margin: auto;
+    }
+
+    .face__hair {
+      fill: orange;
+    }
+
+    .face__hair:nth-of-type(1) {
+      fill: greenyellow;
+    }
+
+    @keyframes eye-ani {
+      0% {
+        transform: scale(0.9);
+      }
+
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    .face__eye {
+      /* transform-origin: center center; */
+      /* animation: eye-ani 0.5s infinite alternate; */
+    }
+
+    .face__eye:nth-of-type(2) {
+      transform-origin: 175px 380.5px;
+    }
+
+    .face__eye:nth-of-type(3) {
+      transform-origin: 397px 380.5px;
+    }
+
+    .ani-on .face__eye {
+      animation: eye-ani 0.5s infinite alternate;
+    }
+  </style> -->
 </head>
 
 <body>
@@ -43,7 +89,7 @@
 
       .face__eye {
         /* transform-origin: center center; */
-        animation: eye-ani 0.5s infinite alternate;
+        /* animation: eye-ani 0.5s infinite alternate; */
       }
 
       .face__eye:nth-of-type(2) {
@@ -53,7 +99,18 @@
       .face__eye:nth-of-type(3) {
         transform-origin: 397px 380.5px;
       }
+
+      .ani-on .face__eye {
+        animation: eye-ani 0.5s infinite alternate;
+      }
     </style>
+
+    <script>
+      const faceElem = document.querySelector('.face');
+      faceElem.addEventListener('click', function () {
+        this.classList.toggle('ani-on');
+      });
+    </script>
 
     <circle cx="286.5" cy="354.5" r="251" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="40" />
     <circle class="face__eye" cx="175" cy="380.5" r="42.5" />
