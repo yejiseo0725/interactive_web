@@ -13,27 +13,29 @@
         background: #ddd;
     }
 
-    rect {
-        fill: orange;
-        stroke: dodgerblue;
-        stroke-width: 10;
+    path {
+        /* stroke: tomato; */
+        stroke-width: 20;
+        stroke-linecap: round;
+        stroke-linejoin: bevel;
+        fill: transparent;
     }
 
-    ellipse {
-        /* css 속성이 우선됨. */
-        /* fill: #fff000; */
+    g {
+        stroke: gold;
     }
 </style>
 
 <body>
-    <svg class="shapes">
-        <rect x="10" y="20" width="200" height="200"></rect>
-        <rect x="50" y="170" rx="10" ry="10" width="100" height="100"></rect>
-        <circle cx="350" cy="250" r="30"></circle>
-        <ellipse cx="200" cy="200" rx="100" ry="50" fill="tomato" stroke="teal" stroke-width="5"></ellipse>
-        <line xl="10" x2="400" y1="30" y2="300" stroke="blue"></line>
-        <!-- <polyline points="0 0, 200 100, 150 300" stroke="red" stroke-width="5"></polyline> -->
-        <polygon points="0 0, 200 100, 150 300" stroke="red" stroke-width="5"></polygon>
+    <svg class="shapes" xmlns="http://www.w3.org/2000/svg">
+
+        <g class="group-1">
+            <path d="M 50 200 L 300 100 L 400 200"></path>
+            <path d="M 150 30 L 100 100 L 50 100"></path>
+            <path d="M 300 50 L 200 100 L 80 40"></path>
+        </g>
+
+
     </svg>
 </body>
 
