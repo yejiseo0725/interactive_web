@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Stroke Animation</title>
+    <style>
+        @keyframes dash-ani {
+            from {
+                stroke-dashoffset: 700;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        circle {
+            stroke: black;
+            stroke-width: 5;
+            stroke-dasharray: 700;
+            stroke-dashoffset: 0;
+            fill: transparent;
+            animation: dash-ani 2s;
+        }
+
+        path {
+            stroke: teal;
+            stroke-width: 8;
+            stroke-dasharray: 727;
+            /* stroke-dashoffset: 0; */
+            fill: transparent;
+            animation: dash-ani 2s alternate infinite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <svg viewBox="0 0 800 500">
+        <!-- <circle cx="400" cy="250" r="100"></circle> -->
+        <path d="M 50 400 C 50 400, 300 500, 400 400 C 400 400, 600 170, 700 300"></path>
+    </svg>
+
+    <script>
+        console.log(document.querySelector('path').getTotalLength());
+    </script>
+
+</body>
+
+</html>
