@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <style>
+        @keyframes sample-ani {
+            0% {
+                background-color: tomato;
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(150px, 0);
+            }
+
+            100% {
+                transform: translate(350px, 200px);
+            }
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            background: #fff000;
+            border: 2px solid #000;
+            animation: sample-ani 1s linear alternate-reverse infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS Animation</h1>
+    <div class="box">BOX</div>
+</body>
+
+</html>
