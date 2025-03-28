@@ -25,16 +25,13 @@ img {
   max-width: 620px;
   margin: 0 auto;
   padding: 0 1rem;
-
-  border: 3px solid tomato;
 }
 
 .scroll-graphic {
   position: sticky;
   top: 0;
   height: 100vh;
-
-  border: 3px solid gold;
+  overflow-x: hidden;
 }
 
 .graphic-item {
@@ -49,6 +46,7 @@ img {
 
   transition: 0.5s;
   opacity: 0;
+  will-change: opacity;
 }
 .visible {
   opacity: 1;
@@ -61,8 +59,6 @@ img {
 
 .scroll-text {
   position: relative;
-
-  border: 3px solid green;
 }
 
 .step {
@@ -71,4 +67,27 @@ img {
   box-shadow: rgba(0, 0, 0, 0.3) 0 0 5px;
   padding: 0.5rem 1rem;
   margin-bottom: 60vh;
+}
+
+.bird {
+  position: absolute;
+  left: 0;
+  bottom: 70%;
+  width: 100px;
+  transform: translateX(-100%);
+  transition: 1.5s 0.5s linear;
+}
+
+[data-index="5"] .bird {
+  left: 30%;
+  bottom: 30%;
+}
+
+.global-footer {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.strikethrough {
+  text-decoration: line-through;
 }
